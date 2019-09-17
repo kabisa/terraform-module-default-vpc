@@ -226,25 +226,6 @@ resource "aws_default_security_group" "ap-northeast-2" {
   vpc_id   = "${aws_default_vpc.ap-northeast-2.id}"
 }
 
-# ap-northeast-3
-provider "aws" {
-  alias  = "ap-northeast-3"
-  region = "ap-northeast-3"
-
-  assume_role {
-    role_arn = "arn:aws:iam::${var.account_id}:role/${var.role}"
-  }
-}
-
-resource "aws_default_vpc" "ap-northeast-3" {
-  provider = "aws.ap-northeast-3"
-}
-
-resource "aws_default_security_group" "ap-northeast-3" {
-  provider = "aws.ap-northeast-3"
-  vpc_id   = "${aws_default_vpc.ap-northeast-3.id}"
-}
-
 # ap-southeast-1
 provider "aws" {
   alias  = "ap-southeast-1"
